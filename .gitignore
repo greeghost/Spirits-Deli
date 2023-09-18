@@ -1,0 +1,5 @@
+# output directory
+build
+
+# dependencies
+node_modules/
