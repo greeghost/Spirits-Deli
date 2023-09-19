@@ -4,31 +4,31 @@ export type card = {
     effect: (quality: number) => void;
 }
 
-let spof: (quality: number) => void = function(quality: number) {
+function spof(quality: number): void {
     switch (quality) {
         case 1:
             console.log("Nuapurista kuulu se polokan tahti jalakani pohjii kutkutti !!");
             break;
         case 2:
-            console.log("Ievan Polkka best song uwu~ !");   
+            console.log("Ievan Polkka best song uwu~ !");
             break;
         case 3:
-            console.log("I can't count to three :(");   
+            console.log("I can't count to three :(");
             break;
         default:
-            break            
+            break
     }
 }
 
-let spo1 = { name: "Spring Onion", quality: 1, effect: spof}
+let spo1 = { name: "Spring Onion", quality: 1, effect: spof }
 
-let spo2 = { name: "Spring Onion", quality: 2, effect: spof}
+let spo2 = { name: "Spring Onion", quality: 2, effect: spof }
 
-let spo3 = { name: "Spring Onion", quality: 3, effect: spof}
+let spo3 = { name: "Spring Onion", quality: 3, effect: spof }
 
 export let card_list: card[] = [spo1, spo2, spo3]
 
-export let play_card: (card: card, hand: card[]) => void = function(card: card, hand: card[]) {
+export function play_card(card: card, hand: card[]): void {
     const index = hand.indexOf(card);
     if (index === -1) {
         console.log("Tried to play a card not in the hand.")
@@ -38,7 +38,6 @@ export let play_card: (card: card, hand: card[]) => void = function(card: card, 
     card.effect(card.quality);
 }
 
-export let card_to_string: (card: card) => string = function(card: card) {
+export function card_to_string(card: card): string {
     return `Level ${card.quality} ${card.name}`
 }
-
